@@ -22,7 +22,6 @@ import streamlit as st
 import numpy as np
 from PIL import Image
 import plotly.graph_objects as go
-import cv2
 
 # Page configuration - MUST be first Streamlit command
 st.set_page_config(

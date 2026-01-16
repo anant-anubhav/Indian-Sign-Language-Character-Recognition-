@@ -348,72 +348,71 @@ uvicorn deployment.fastapi_app:app --host 0.0.0.0 --port 8000 --workers 4
 streamlit run deployment/streamlit_app.py
 ```
 
-### 🚂 Railway Deployment
+### 🤗 Hugging Face Spaces Deployment
 
-Deploy your ISL Recognition API to [Railway.app](https://railway.app) with these steps:
+Deploy your ISL Recognition app to [Hugging Face Spaces](https://huggingface.co/spaces) for free hosting!
 
-#### Prerequisites
+#### Why Hugging Face Spaces?
 
-1. **Git LFS** - Required for large model files
-2. **Railway Account** - Sign up at [railway.app](https://railway.app)
-3. **GitHub Repository** - Push your code to GitHub
+| Advantage | Details |
+|-----------|---------|
+| **ML-First Platform** | Built specifically for ML models |
+| **No Cold Starts** | Always ready, no spin-down |
+| **16GB RAM Free** | Enough for TensorFlow models |
+| **Gradio Native** | Direct support with `app.py` |
+| **Free Forever** | CPU instances are free |
 
-#### Step 1: Install Git LFS
+#### Step 1: Create a Hugging Face Account
 
+Sign up at [huggingface.co](https://huggingface.co) if you haven't already.
+
+#### Step 2: Create a New Space
+
+1. Go to [huggingface.co/new-space](https://huggingface.co/new-space)
+2. Enter a name for your Space (e.g., `isl-recognition`)
+3. Select **Gradio** as the SDK
+4. Choose **Public** visibility
+5. Click **Create Space**
+
+#### Step 3: Upload Files
+
+Upload these files to your Space:
+
+| File/Folder | Required |
+|-------------|----------|
+| `app.py` | ✅ Yes |
+| `requirements.txt` | ✅ Yes |
+| `saved_models/` | ✅ Yes (all 8 files) |
+
+**Option A: Via Git**
 ```bash
-# Windows (with Git for Windows)
-git lfs install
-
-# Or download from: https://git-lfs.github.com/
-```
-
-#### Step 2: Initialize Git LFS & Push
-
-```bash
-# Track large files with LFS
-git lfs install
-git lfs track "*.keras"
-git lfs track "*.h5"
-git lfs track "*.pkl"
-
-# Add all files
-git add .gitattributes
+git clone https://huggingface.co/spaces/YOUR_USERNAME/isl-recognition
+cd isl-recognition
+# Copy your files here
 git add .
-git commit -m "Add Railway deployment configuration"
-git push origin main
+git commit -m "Add ISL Recognition app"
+git push
 ```
 
-#### Step 3: Deploy on Railway
+**Option B: Via Web UI**
+Drag and drop files directly in the Hugging Face Space interface.
 
-1. Go to [railway.app](https://railway.app) and login with GitHub
-2. Click **"New Project"** → **"Deploy from GitHub Repo"**
-3. Select your ISL Recognition repository
-4. Railway will auto-detect the `Procfile` and deploy
+#### Step 4: Wait for Build
 
-#### Step 4: Environment Variables (Optional)
+Hugging Face will automatically:
+1. Install dependencies from `requirements.txt`
+2. Start your Gradio app from `app.py`
+3. Provide a public URL
 
-Add these in Railway dashboard if needed:
-| Variable | Value |
-|----------|-------|
-| `PORT` | Auto-set by Railway |
-| `PYTHON_VERSION` | `3.10.12` |
+Your app will be live at: `https://huggingface.co/spaces/YOUR_USERNAME/isl-recognition`
 
-#### Railway Configuration Files
+#### Files for Hugging Face Spaces
 
 | File | Purpose |
 |------|---------|
-| `Procfile` | Defines the start command |
-| `railway.json` | Railway-specific configuration |
-| `runtime.txt` | Python version specification |
-| `requirements.txt` | Dependencies |
-
-#### Important Notes
-
-> ⚠️ **Model Files Size**: The `saved_models/` folder contains ~180MB of model files. Git LFS is required to push them to GitHub.
-
-> 💡 **Free Tier**: Railway provides $5 free credits monthly. Monitor your usage in the dashboard.
-
-> 🔧 **Memory**: The app requires ~1GB RAM for TensorFlow. Railway's free tier should handle this.
+| `app.py` | Gradio application (main entry) |
+| `requirements.txt` | Python dependencies |
+| `saved_models/` | Trained model files |
 
 ---
 
