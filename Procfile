@@ -1,1 +1,1 @@
-web: uvicorn deployment.fastapi_app:app --host 0.0.0.0 --port $PORT
+web: streamlit run deployment/streamlit_app.py --server.port $PORT --server.address 0.0.0.0 --server.headless true
