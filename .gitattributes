@@ -1,0 +1,9 @@
+# Git LFS - Large File Storage
+# Track model files that are too large for regular Git
+
+# Keras model files
+*.keras filter=lfs diff=lfs merge=lfs -text
+*.h5 filter=lfs diff=lfs merge=lfs -text
+
+# Pickle files (class labels)
+*.pkl filter=lfs diff=lfs merge=lfs -text

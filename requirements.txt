@@ -1,0 +1,44 @@
+# Indian Sign Language (ISL) Recognition Project
+# Python 3.10+ required
+# Railway Deployment Requirements
+
+# ========================================
+# Core ML/DL Framework
+# ========================================
+tensorflow-cpu>=2.12.0
+
+# ========================================
+# Data Processing & Visualization
+# ========================================
+numpy>=1.23.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# ========================================
+# Machine Learning Utilities
+# ========================================
+scikit-learn>=1.2.0
+
+# ========================================
+# Image Processing
+# ========================================
+pillow>=9.5.0
+
+# ========================================
+# Web Framework (FastAPI)
+# ========================================
+fastapi>=0.100.0
+uvicorn[standard]>=0.22.0
+python-multipart>=0.0.6
+pydantic>=2.0.0
+
+# ========================================
+# Streamlit (Optional - for web UI)
+# ========================================
+streamlit>=1.25.0
+plotly>=5.15.0
+
+# ========================================
+# OpenCV (for live webcam detection)
+# ========================================
+opencv-python>=4.8.0

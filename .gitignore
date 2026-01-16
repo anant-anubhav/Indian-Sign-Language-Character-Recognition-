@@ -1,0 +1,36 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Dataset (too large for Git - download separately)
+Dataset/
+
+# Local development
+*.log
+.env
+.env.local
+
+# Model files in Notebook folder (use saved_models/ in root)
+Notebook/saved_models/
